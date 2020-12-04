@@ -1,0 +1,37 @@
+create table Artikel
+(
+	ARTIKELNUMMER NUMBER(5),
+	ARTIKEL VARCHAR2(40),
+	ANZAHL NUMBER(4),
+	PREISGRUPPE CHAR(1)
+);
+insert into artikel values(10000,'Rasenmäher Schafherde', 4, 'K');
+insert into artikel values(10001,'Rasenmäher Nagelschere', 21, 'A');
+insert into artikel values(10002,'Rasenmäher Elektro', 21, 'K');
+insert into artikel values(10003,'Rasenmäher Hand', 5, 'E');
+insert into artikel values(10100,'Heckenschere Elektro', 20, 'G');
+insert into artikel values(10101,'Heckenschere Hand klein', 38, 'D');
+insert into artikel values(10102,'Heckenschere Hand Teleskop', 35, 'E');
+insert into artikel values(10103,'Heckenschere Benzin', 5, 'H');
+insert into artikel values(11000,'Pflanze Heckenrose', 2105, 'A');
+insert into artikel values(11001,'Pflanze Kletterrose', 1805, 'A');
+insert into artikel values(11002,'Pflanze Rose rot', 3812, 'B');
+insert into artikel values(11003,'Pflanze Rose gelb', 3152, 'A');
+insert into artikel values(11100,'Pflanze Tulpe weiß', 1254, 'A');
+insert into artikel values(11101,'Pflanze Tulpe gelb', 854, 'A');
+insert into artikel values(11102,'Pflanze Tulpe rot', 1159, 'A');
+insert into artikel values(11103,'Pflanze Tulpe dunkelrot', 1654, 'B');
+insert into artikel values(12000,null, 14, 'D');
+
+create table Lieferant
+(
+	Lieferant_id RAW(16) constraint Lieferant_pk primary key,
+	Name VARCHAR2(20),
+	Straße VARCHAR2(20),
+	Hausnummer NUMBER(4),
+	PLZ NUMBER(5),
+	ORT VARCHAR2(20)
+);
+ insert into lieferant values(SYS_GUID(), 'Müller', 'Müllerweg', 17, 12345, 'Müllerstadt');
+ insert into lieferant values(SYS_GUID(), 'Schlosser', 'Schlossergasse', 18, 23456, 'Schlosserhausen');
+ insert into lieferant values(SYS_GUID(), 'Fischer', 'Fischersteig', 19, 34567, 'Fischerdorf');

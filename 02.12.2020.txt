@@ -1,0 +1,35 @@
+1.
+alter table artikel add
+(
+	preisgruppe CHAR(1)
+);
+
+2.
+update artikel set preisgruppe = 'A' where artikelnummer in (10001, 11000, 11001, 11003, 11100, 11101, 11102);
+update artikel set preisgruppe = 'K' where artikelnummer in (10000, 10002);
+update artikel set preisgruppe = 'B' where artikelnummer in (11002, 11103);
+update artikel set preisgruppe = 'E' where artikelnummer in (10003, 10102);
+update artikel set preisgruppe = 'G' where artikelnummer in (10100);
+update artikel set preisgruppe = 'D' where artikelnummer in (10101, 12000);
+update artikel set preisgruppe = 'H' where artikelnummer in (10103);
+
+3.
+select * from artikel where artikel is not null and preisgruppe between 'B' and 'F';
+
+4.
+select * from artikel where preisgruppe = 'A' or (preisgruppe in ('D', 'E', 'F') and artikel like '%Hand%');
+
+5.
+ alter table artikel add
+ (
+ 	Lieferant RAW(16) constraint Lieferant_fk references Lieferant(lieferant_id)
+ );
+
+6.
+update artikel set lieferant = (select lieferant_id from lieferant where name = 'Müller') where artikelnummer = 11000;
+update artikel set lieferant = (select lieferant_id from lieferant where name = 'Fischer') where artikelnummer in(10000, 12000);
+update artikel set lieferant = (select lieferant_id from lieferant where name = 'Schlosser') where artikelnummer between 10001 and 10103;
+update artikel set lieferant = (select lieferant_id from lieferant where name = 'Müller') where artikelnummer like '11___';
+
+7.
+select l.ort from artikel a, lieferant l where a.lieferant = l.lieferant_id and a.artikel = 'Rasenmäher Hand';

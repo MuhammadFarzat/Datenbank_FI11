@@ -1,0 +1,27 @@
+select ename, job from employee;
+
+select ename
+from employee 
+where job = 'CLERK';
+
+select ename
+from employee
+where job = 'CLERK' and sal > 1000;
+
+select ename
+from employee
+where job = 'CLERK'
+order by sal;
+
+select 12*(sal+comm) "Jahresgehalt" from employee;
+//Faaaaaaaaaaaaaalsch, weil es Felder in der Splate comm gibt, die keinen Wert haben (NULL)
+
+select 12*(sal+nvl(comm, 0)) "Jahresgehalt" from employee;
+//Richtig und heißt rechne mit 0 wo es NULL ist ansonsten mit dem Wert, der da ist
+
+alter table artikel drop column preisgruppe;
+Löschen einer Tabelle
+
+
+
+

@@ -1,0 +1,55 @@
+create table department
+(
+ DEPTNO    NUMBER(2) not null,
+ DNAME     VARCHAR2(14),
+ LOC       VARCHAR2(13)
+);
+
+insert into department values (10,'ACCOUNTING','NEW YORK');
+insert into department values (20,'RESEARCH','DALLAS');
+insert into department values (30,'SALES','CHICAGO');
+insert into department values (40,'OPERATIONS','BOSTON');
+
+create table employee
+(
+ EMPNO     NUMBER(4) NOT NULL,
+ ENAME     VARCHAR2(10),
+ JOB       VARCHAR2(9),
+ MGR       NUMBER(4),
+ HIREDATE  DATE,
+ SAL       NUMBER(7,2),
+ COMM      NUMBER(7,2),
+ DEPTNO    NUMBER(2)
+);
+
+alter session set nls_date_format = 'dd.mm.yyyy';
+
+insert into employee values (7369,'SMITH','CLERK',7902,'17.12.1980',800,'',20);
+insert into employee values (7499,'ALLEN','SALESMAN',7698,'20.02.1981',1600,300,30);
+insert into employee values (7521,'WARD','SALESMAN',7698,'22.02.1981',1250,500,30);
+insert into employee values (7566,'JONES','MANAGER',7839,'02.04.1981',2975,'',20);
+insert into employee values (7654,'MARTIN','SALESMAN',7698,'28.09.1981',1250,1400,30);
+insert into employee values (7698,'BLAKE','MANAGER',7839,'01.05.1981',2850,'',30);
+insert into employee values (7782,'CLARK','MANAGER',7839,'09.06.1981',2450,'',10);
+insert into employee values (7788,'SCOTT','ANALYST',7566,'19.04.1987',3000,'',20);
+insert into employee values (7839,'KING','PRESIDENT','','17.11.1981',5000,'',10);
+insert into employee values (7844,'TURNER','SALESMAN',7698,'08.09.1981',1500,0,30);
+insert into employee values (7876,'ADAMS','CLERK',7788,'23.05.1987',1100,'',20);
+insert into employee values (7900,'JAMES','CLERK',7698,'03.12.1981',950,'',30);
+insert into employee values (7902,'FORD','ANALYST',7566,'03.12.1981',3000,'',20);
+insert into employee values (7934,'MILLER','CLERK',7782,'23.01.1982',1300,'',10);
+
+create table salarygrade
+(
+ GRADE     NUMBER,
+ LOSAL     NUMBER,
+ HISAL     NUMBER
+);
+
+insert into salarygrade values (1,700,1200);
+insert into salarygrade values (2,1201,1400);
+insert into salarygrade values (3,1401,2000);
+insert into salarygrade values (4,2001,3000);
+insert into salarygrade values (5,3001,9999);
+
+commit;

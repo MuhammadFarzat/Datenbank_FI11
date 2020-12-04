@@ -1,0 +1,21 @@
+1.select e.ename 
+from employee e, department
+where e.deptno = department.deptno and department.dname = 'ACCOUNTING';
+
+2.select department.dname, e.* 
+from employee e, department
+where e.deptno = department.deptno and department.loc = 'DALLAS';
+
+3.select emp.ename, dep.loc
+from employee emp, department dep
+where emp.deptno = dep.deptno and dep.dname != 'SALES';//where emp.deptno = dep.deptno and dep.dname <> 'SALES'
+
+create table Adressen
+(
+Strasse VARCHAR2(30),
+PLZ VARCHAR2(5),//nicht NUMBER weil wenn die plz mit 0 anfängt dann haben wir nur 4 stellige Zahl
+Ort VARCHAR2(20),
+Hausnr VARCHAR2(4)
+);//Erstellt eine Tabelle Adresse mit den Spalten (Strasse, PLZ, Ort)
+
+drop table adressen;//Löscht die Tabelle

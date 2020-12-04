@@ -1,0 +1,24 @@
+create table Schueler
+(
+	Schueler_ID raw(16) constraints Schueler_PK primary key, klasse raw(16)
+);//erstellt eine Tabelle mit Splate Schueler_ID als primary key (Primarschlüssel). Der Fremdschlüssel an sich heißt Schueler_PK
+
+create table Klasse
+(
+	Klasse_ID raw(16) constraints Klasse_PK primary key
+);
+
+alter table Schueler add
+(
+	constraint Klasse_FK foreign key(klasse) references Klasse(Klasse_ID)
+);//macht die Spalte klasse in der Tabelle als Fremdschlüssel zur Tabelle Klasse Spalte Klasse_ID
+
+select constraint_name from user_constraints;
+//zeigt alle Fremd- und Primärschlüssel
+
+drop table Klasse;
+//löscht die Tabelle Klasse. 
+Hinweis: Geht nicht, weil die Tabelll Schueler damit mit einer Fremdschlüssel verbunden ist.
+Um die Tabelle trotzdem zu löschen benutzt man cascade constraints
+also: drop table Klasse cascade constraints;
+

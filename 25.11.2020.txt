@@ -1,0 +1,17 @@
+1.select artikel from artikel where artikelnummer = 11000;
+
+2.select * from artikel where anzahl > 2000 order by anzahl;
+
+3.select artikel from artikel where artikel like '%Hand%' or artikel like '%hand%';
+
+4.select artikel from artikel where artikel like '______________e%';
+
+5.select artikel from artikel where artikel like '%a%a%';
+
+6.select * from artikel where artikel is not null;
+
+7.select artikel from artikel where artikelnummer in (10999, 11000, 11001);
+
+8.select * from artikel where anzahl between 10 and 100;
+
+9.select * from artikel where artikelnummer not between 10000 and 10099;

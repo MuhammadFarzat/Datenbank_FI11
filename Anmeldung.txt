@@ -1,0 +1,9 @@
+sqlplus fi201908/oracle@172.16.1.14/orclit.bsz.edu
+
+
+
+C:
+cd C:\Oracle\InstantClient
+set nls_lang=german_germany.we8pc850
+sqlplus fi201908/oracle@172.16.1.14/orclit.bsz.edu
+alter session set nls_date_format = 'dd.mm.yyyy';
