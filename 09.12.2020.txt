@@ -1,0 +1,35 @@
+1.
+select artikel from artikel where lieferant in 
+(select lieferant_id from lieferant where name in ('Fischer', 'Schlosser'));
+
+2.
+select a.artikel, l.plz from artikel a, lieferant l
+where a.lieferant = l.lieferant_id and a.preisgruppe between 'A' and 'D'
+order by a.preisgruppe;
+
+3.
+select a.artikelnummer, a.artikel, l.name, l.plz, l.ort from artikel a, lieferant l 
+where a.lieferant = l.lieferant_id and l.name != 'Schlosser'; 
+
+4.
+create table Kunde
+(
+	KUNDE_ID RAW(16),
+	ANREDE VARCHAR2(4),
+	VORNAME VARCHAR2(30),
+	NACHNAME VARCHAR(30),
+	STRASSE VARCHAR(30),
+	HAUSNUMMER VARCHAR2(4),
+	PLZ NUMBER(5),
+	ORT VARCHAR(30)
+);
+
+insert into kunde values(SYS_GUID(), 'Herr', 'Schorsch', 'Schuster' , 'Schusterplatz' , '5', 45678, 'Schusterhausen');
+insert into kunde values(SYS_GUID(), 'Herr', 'Max', 'Metzger' , 'Metzgergasse' , '6', 56789, 'Metzgerstadt');
+insert into kunde values(SYS_GUID(), 'Herr', 'Moritz', 'Müller' , 'Müllerweg , '17', 12345, 'Müllerstadt');
+
+5.
+select name from lieferant UNION select nachname from kunde;
+
+6.
+select name from lieferant MINUS select nachname from kunde;
